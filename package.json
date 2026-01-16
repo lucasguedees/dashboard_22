@@ -5,7 +5,7 @@
   "description": "Dashboard Operacional 22º BPM",
   "scripts": {
     "start": "npx serve .",
-    "build": "mkdir -p dist && cp -r index.html index.tsx App.tsx types.ts constants.tsx components metadata.json netlify.toml dist/"
+    "build": "echo 'No build step required for ESM-only deployment'"
   },
   "keywords": [],
   "author": "",
