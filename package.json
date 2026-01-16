@@ -1,0 +1,12 @@
+{
+  "name": "dashboard-22bpm",
+  "version": "1.0.0",
+  "description": "Dashboard Operacional 22º BPM",
+  "scripts": {
+    "start": "npx serve .",
+    "build": "echo 'No build step required for ESM version'"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
