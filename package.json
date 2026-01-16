@@ -1,10 +1,11 @@
+
 {
   "name": "dashboard-22bpm",
   "version": "1.0.0",
   "description": "Dashboard Operacional 22º BPM",
   "scripts": {
     "start": "npx serve .",
-    "build": "echo 'No build step required for ESM version'"
+    "build": "mkdir -p dist && cp -r index.html index.tsx App.tsx types.ts constants.tsx components metadata.json netlify.toml dist/"
   },
   "keywords": [],
   "author": "",
