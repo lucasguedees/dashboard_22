@@ -1,19 +1,13 @@
+
 {
   "name": "dashboard-22bpm",
-  "private": true,
   "version": "1.0.0",
-  "type": "module",
+  "description": "Dashboard Operacional 22º BPM",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "start": "npx serve .",
+    "build": "echo 'No build step required for ESM-only deployment'"
   },
-  "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
-  },
-  "devDependencies": {
-    "vite": "^5.0.0",
-    "@vitejs/plugin-react": "^4.2.0"
-  }
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
