@@ -3,6 +3,17 @@
   "version": 2,
   "public": true,
   "cleanUrls": true,
+  "headers": [
+    {
+      "source": "/(.*).(tsx|ts)",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/javascript"
+        }
+      ]
+    }
+  ],
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ]

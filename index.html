@@ -10,7 +10,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     
-    <!-- Babel para transformar JSX em tempo real -->
+    <!-- Babel para transformar JSX/TSX em tempo real no navegador -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -51,13 +51,14 @@
     </div>
 
     <!-- 
-      Para evitar a tela infinita, removemos o data-type="module" que causa erros de CORS/MIME no Vercel
-      e deixamos o Babel processar o arquivo como um script comum que lida com os imports via esm.sh
+      IMPORTANTE: Para Babel Standalone funcionar com múltiplos arquivos .tsx no navegador:
+      1. Remova data-type="module" da tag script principal se houver erro de MIME.
+      2. O Babel processará os imports de strings (esm.sh) via importmap.
     -->
     <script 
         type="text/babel" 
         data-presets="react,typescript" 
-        src="./index.tsx">
+        src="index.tsx">
     </script>
 </body>
 </html>
