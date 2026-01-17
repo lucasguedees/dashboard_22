@@ -52,8 +52,7 @@
 
     <!-- 
       O Babel Standalone requer que o tipo seja text/babel.
-      O data-type="module" instrui o Babel a tratar o arquivo como um módulo ESM.
-      Adicionamos extensões explícitas no código interno para o Vercel não falhar.
+      Carregamos o index.tsx como um módulo para que os imports funcionem.
     -->
     <script 
         type="text/babel" 
