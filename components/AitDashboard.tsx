@@ -4,9 +4,9 @@ import {
   LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, 
   BarChart, Bar, Legend, LabelList
 } from 'recharts';
-import { CITIES, MONTHS } from '../constants';
-import { TrafficInfraction } from '../types';
-import AitInsights from './AitInsights';
+import { CITIES, MONTHS } from '../constants.tsx';
+import { TrafficInfraction } from '../types.ts';
+import AitInsights from './AitInsights.tsx';
 
 declare var html2canvas: any;
 
@@ -46,7 +46,6 @@ const AitDashboard: React.FC<AitDashboardProps> = ({ data, isAdmin, onDelete, on
   }, [data, selectedCities]);
 
   const availableYears = useMemo(() => {
-    // FIX: Ensure d.year is treated as a number for arithmetic comparison
     return Array.from(new Set(data.map(d => Number(d.year)))).sort((a, b) => (b as number) - (a as number));
   }, [data]);
 
@@ -58,7 +57,6 @@ const AitDashboard: React.FC<AitDashboardProps> = ({ data, isAdmin, onDelete, on
     }));
     
     const unique = Array.from(new Map(periods.map(p => [p.id, p])).values());
-    // FIX: Define explicit type for sort comparison to avoid 'unknown' errors
     return unique.sort((a: {sortVal: number}, b: {sortVal: number}) => b.sortVal - a.sortVal);
   }, [data]);
 

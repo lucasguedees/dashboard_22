@@ -8,21 +8,22 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Babel para transpilar JSX no navegador em tempo de execução -->
+    
+    <!-- Babel Standalone para processar JSX em tempo real -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
     <style>
-        body { font-family: 'Inter', sans-serif; }
+        body { font-family: 'Inter', sans-serif; background-color: #030712; }
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #111827; }
         ::-webkit-scrollbar-thumb { background: #374151; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #4b5563; }
-        @media print {
-            .no-print { display: none !important; }
-        }
+        @media print { .no-print { display: none !important; } }
         .animate-fadeIn { animation: fadeIn 0.5s ease-out; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     </style>
-<script type="importmap">
+
+    <script type="importmap">
 {
   "imports": {
     "react": "https://esm.sh/react@19.0.0",
@@ -36,8 +37,27 @@
 </script>
 </head>
 <body class="bg-gray-950 text-gray-100">
-    <div id="root"></div>
-    <!-- O type="text/babel" e data-type="module" são cruciais para o Babel processar os imports ESM -->
-    <script type="text/babel" data-type="module" src="./index.tsx"></script>
+    <div id="root">
+        <!-- Loader inicial caso o JS demore a transpiladar -->
+        <div class="h-screen flex items-center justify-center">
+            <div class="flex flex-col items-center gap-4">
+                <div class="w-10 h-10 border-4 border-blue-500/20 border-t-blue-500 rounded-full animate-spin"></div>
+                <p class="text-blue-500 text-xs font-bold uppercase tracking-widest">Carregando Sistema...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 
+      IMPORTANTE: Para o Babel processar os arquivos locais .tsx como módulos 
+      precisamos carregar o index.tsx com data-plugins="transform-modules-umd" 
+      ou similar, mas a forma mais robusta em ambiente estático é usar o data-type="module" 
+      junto com o preset react.
+    -->
+    <script 
+        type="text/babel" 
+        data-type="module" 
+        data-presets="react" 
+        src="./index.tsx">
+    </script>
 </body>
 </html>

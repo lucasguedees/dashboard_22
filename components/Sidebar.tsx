@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
-import { ViewType, User } from '../types';
-import { ShieldIcon } from '../constants';
+import { ViewType, User } from '../types.ts';
+import { ShieldIcon } from '../constants.tsx';
 
 interface SidebarProps {
   activeView: ViewType;

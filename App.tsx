@@ -1,15 +1,15 @@
 
 import React, { useState, useEffect, useCallback } from 'react';
-import Sidebar from './components/Sidebar';
-import AitForm from './components/AitForm';
-import AitDashboard from './components/AitDashboard';
-import ProductivityForm from './components/ProductivityForm';
-import ProductivityDashboard from './components/ProductivityDashboard';
-import DataManagement from './components/DataManagement';
-import UserManagement from './components/UserManagement';
-import Login from './components/Login';
-import { ViewType, TrafficInfraction, ProductivityRecord, User } from './types';
-import { ShieldIcon } from './constants';
+import Sidebar from './components/Sidebar.tsx';
+import AitForm from './components/AitForm.tsx';
+import AitDashboard from './components/AitDashboard.tsx';
+import ProductivityForm from './components/ProductivityForm.tsx';
+import ProductivityDashboard from './components/ProductivityDashboard.tsx';
+import DataManagement from './components/DataManagement.tsx';
+import UserManagement from './components/UserManagement.tsx';
+import Login from './components/Login.tsx';
+import { ViewType, TrafficInfraction, ProductivityRecord, User } from './types.ts';
+import { ShieldIcon } from './constants.tsx';
 
 const App: React.FC = () => {
   const [user, setUser] = useState<User | null>(null);
@@ -87,7 +87,7 @@ const App: React.FC = () => {
       setInfractions(prev => {
         const updated = prev.filter(item => item.id !== id);
         localStorage.setItem('22bpm_infractions', JSON.stringify(updated));
-        return [...updated]; // Nova referência para disparar useEffect/useMemo
+        return [...updated];
       });
     }
   }, []);
